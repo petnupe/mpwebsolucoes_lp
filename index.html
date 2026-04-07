@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MP Web Soluções — Sistemas, Sites e Integrações</title>
+  <meta name="description" content="Soluções web sob medida: Sites, Landing Pages, Sistemas SaaS, ERPs, APIs e Integrações. Tecnologia de ponta com foco em resultados.">
+  <meta property="og:title" content="MP Web Soluções — Tecnologia com foco em resultados">
+  <meta property="og:description" content="Chega de sistemas lentos e amadores. Tenha uma solução robusta, segura e sob medida.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpwebsolucoes.com.br/">
+  <meta property="og:image" content="./media/logo.png">
+  
+  <!-- EmailJS Script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("6J97gqDWm7SA2CCv6"); 
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-alt: #0f172a;
+      --primary: #0ea5e9;
+      --primary-hover: #0284c7;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --border: rgba(255, 255, 255, 0.1);
+      --success: #22c55e;
+      --success-hover: #16a34a;
+      --radius: 12px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header & Nav */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    
+    .brand img {
+      height: 42px;
+      width: auto;
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    
+    nav a:hover {
+      color: var(--text);
+    }
+    
+    .header-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .btn-outline {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 20px -6px rgba(14, 165, 233, 0.5);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -6px rgba(14, 165, 233, 0.6);
+    }
+    
+    .btn-whats {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+    
+    .btn-whats:hover {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: var(--success);
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 160px 0 100px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+    
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero p.lead {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .hero-image img {
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Sections General */
+    section {
+      padding: 100px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+    
+    .section-header h2 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(14, 165, 233, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(56, 189, 248, 0.1));
+      color: var(--accent);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.5rem;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+    }
+    
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+    
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    
+    .service-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .service-tag {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    
+    /* Cases */
+    #cases {
+      background: var(--bg-alt);
+    }
+    
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+    
+    .case-card {
+      display: block;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.3s ease;
+    }
+    
+    .case-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .case-image {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background: #1e293b;
+    }
+    
+    .case-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .case-content {
+      padding: 24px;
+    }
+    
+    .case-content h4 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    
+    .case-content p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Contact */
+    .contact-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+    
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    
+    .form-control {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    }
+
+    select.form-control option {
+      background-color: var(--bg-alt);
+      color: var(--text);
+    }
+    
+    textarea.form-control {
+      min-height: 140px;
+      resize: vertical;
+    }
+    
+    .contact-alternatives {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    .contact-alternatives p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    
+    .alt-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    /* Footer */
+    footer {
+      background: #060a13;
+      border-top: 1px solid var(--border);
+      padding: 64px 0 32px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+    
+    .footer-brand img {
+      height: 48px;
+      margin-bottom: 24px;
+    }
+    
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 400px;
+      margin-bottom: 24px;
+    }
+    
+    .social-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .social-tags span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    
+    .footer-links h4 {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-glow {
+        top: 10%;
+      }
+      .hero p.lead {
+        margin-inline: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-alt);
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 0;
+        gap: 24px;
+        border-bottom: 1px solid var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.3s ease;
+      }
+      
+      nav ul.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      
+      .header-actions {
+        display: none;
+      }
+      
+      .menu-btn {
+        display: block;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-container {
+        padding: 32px 24px;
+      }
+    }
+
+    /* Loading overlay */
+    .loading-overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(6,10,19,.6);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+    .loading-overlay.show{display:flex}
+    .spinner{
+      width: 42px;
+      height: 42px;
+      border: 4px solid rgba(255,255,255,.2);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    .loading-text{color: var(--text-muted); font-size: .95rem}
+    @keyframes spin { to { transform: rotate(360deg) } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <img src="./media/logo.png" alt="MP Web Soluções">
+      </a>
+      
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+        <a href="#contato" class="btn btn-primary">Pedir Orçamento</a>
+      </div>
+      
+      <button class="menu-btn" aria-label="Menu" id="menu-btn">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">🚀 Tecnologia + Resultado</div>
+          <h1>Precisa de um sistema ou site que <span>realmente funciona?</span></h1>
+          <p class="lead">Na MP Web Soluções, tiramos sua ideia do papel com tecnologia de ponta e foco em resultados. Seja para vender mais ou organizar sua empresa, nós criamos a ferramenta certa.</p>
+          
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">Quero um orçamento</a>
+            <a href="https://wa.me/5551991289103" target="_blank" class="btn btn-whats">WhatsApp (51) 99128-9103</a>
+          </div>
+          
+          <p style="margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">
+            Chega de sistemas lentos e amadores. Solução robusta, segura e sob medida.
+          </p>
+        </div>
+        
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Desenvolvimento Web e Sistemas">
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-header">
+          <h2>O que fazemos por você</h2>
+          <p>Soluções tecnológicas completas para impulsionar o seu negócio digital.</p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3>Sites & Landing Pages</h3>
+            <p>Projetos rápidos, leves e otimizados para converter visitantes em clientes. Design moderno e responsivo.</p>
+            <div class="service-tags">
+              <span class="service-tag">Conversão</span>
+              <span class="service-tag">SEO</span>
+              <span class="service-tag">Performance</span>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">☁️</div>
+            <h3>Sistemas SaaS</h3>
+            <p>Desenvolvemos sua plataforma completa, escalável e pronta para crescer junto com o seu negócio.</p>
+            <div class="service-tags">
+              <span class="service-tag">Multi-tenant</span>
+              <span class="service-tag">Assinaturas</span>
+              <span class="service-tag">Escalabilidade</span>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Sistemas Internos & ERPs</h3>
+            <p>Automatize processos, ganhe eficiência e centralize os dados da sua empresa em um só lugar.</p>
+            <div class="service-tags">
+              <span class="service-tag">Automação</span>
+              <span class="service-tag">Relatórios</span>
+              <span class="service-tag">Segurança</span>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">🔌</div>
+            <h3>APIs & Integrações</h3>
+            <p>Conectamos seu negócio ao mundo com integrações estáveis, seguras e bem documentadas.</p>
+            <div class="service-tags">
+              <span class="service-tag">REST</span>
+              <span class="service-tag">Webhooks</span>
+              <span class="service-tag">Integrações</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nossos Cases</h2>
+          <p>Projetos que geram valor real para o negócio de nossos clientes.</p>
+        </div>
+        
+        <div class="cases-grid">
+          <a href="https://divulga.cuidadosmeus.com.br" target="_blank" rel="noopener" class="case-card">
+            <div class="case-image">
+              <img src="https://api.microlink.io/?url=https%3A%2F%2Fdivulga.cuidadosmeus.com.br&screenshot=true&embed=screenshot.url" alt="divulga.cuidadosmeus.com.br">
+            </div>
+            <div class="case-content">
+              <h4>Divulga Cuidados Meus</h4>
+              <p>divulga.cuidadosmeus.com.br</p>
+            </div>
+          </a>
+          
+          <a href="https://cuidadosmeus.com.br" target="_blank" rel="noopener" class="case-card">
+            <div class="case-image">
+              <img src="https://api.microlink.io/?url=https%3A%2F%2Fcuidadosmeus.com.br&screenshot=true&embed=screenshot.url" alt="cuidadosmeus.com.br">
+            </div>
+            <div class="case-content">
+              <h4>Cuidados Meus</h4>
+              <p>cuidadosmeus.com.br</p>
+            </div>
+          </a>
+
+          <a href="https://educandario.org.br" target="_blank" rel="noopener" class="case-card">
+            <div class="case-image">
+              <img src="https://api.microlink.io/?url=https%3A%2F%2Feducandario.org.br&screenshot=true&embed=screenshot.url" alt="educandario.org.br">
+            </div>
+            <div class="case-content">
+              <h4>Educandário</h4>
+              <p>educandario.org.br</p>
+            </div>
+          </a>
+
+          <a href="https://spina.mpwebsolucoes.com.br" target="_blank" rel="noopener" class="case-card">
+            <div class="case-image">
+              <img src="https://api.microlink.io/?url=https%3A%2F%2Fspina.mpwebsolucoes.com.br&screenshot=true&embed=screenshot.url" alt="spina.mpwebsolucoes.com.br">
+            </div>
+            <div class="case-content">
+              <h4>Spina</h4>
+              <p>spina.mpwebsolucoes.com.br</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-header">
+          <h2>Fale com a MP Web</h2>
+          <p>Responderemos o mais breve possível para entender o seu projeto.</p>
+        </div>
+        
+        <div class="contact-container">
+          <form id="contactForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome">
+              </div>
+              
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="voce@exemplo.com">
+              </div>
+              
+              <div class="form-group">
+                <label for="telefone">Telefone/WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(51) 99999-9999" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="tipo">Tipo de projeto</label>
+                <select id="tipo" name="tipo" class="form-control" required>
+                  <option value="" disabled selected>Selecione uma opção</option>
+                  <option value="Site/Landing Page">Site / Landing Page</option>
+                  <option value="SaaS">Sistema SaaS</option>
+                  <option value="Sistema Interno/ERP">Sistema Interno / ERP</option>
+                  <option value="APIs/Integrações">APIs / Integrações</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+              
+              <div class="form-group full">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" class="form-control" required placeholder="Conte-nos sobre seu projeto..."></textarea>
+              </div>
+              
+              <div class="form-group full">
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 16px;">Enviar Mensagem</button>
+              </div>
+            </div>
+          </form>
+          
+          <div class="contact-alternatives">
+            <p>Ou entre em contato pelos nossos canais diretos:</p>
+            <div class="alt-buttons">
+              <a href="mailto:contato@mpwebsolucoes.com.br" class="btn btn-outline">contato@mpwebsolucoes.com.br</a>
+              <a href="https://wa.me/5551997093805" target="_blank" class="btn btn-whats">WhatsApp (51) 99709-3805</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="./media/logo.png" alt="MP Web Soluções">
+          <p>Tiramos sua ideia do papel com tecnologia de ponta e foco em resultados. Chega de sistemas lentos e amadores. Tenha uma solução robusta, segura e feita sob medida.</p>
+          <div class="social-tags">
+            <span>#mpwebsolucoes</span>
+            <span>#tecnologia</span>
+            <span>#sistemas</span>
+            <span>#criacaodesites</span>
+            <span>#saas</span>
+            <span>#negociosdigital</span>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@mpwebsolucoes.com.br">contato@mpwebsolucoes.com.br</a></li>
+            <li><a href="https://wa.me/5551991289103" target="_blank">WhatsApp (51) 99128-9103</a></li>
+            <li><a href="https://wa.me/5551997093805" target="_blank">WhatsApp (51) 99709-3805</a></li>
+            <li><a href="https://mpwebsolucoes.com.br/" target="_blank">mpwebsolucoes.com.br</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#cases">Cases</a></li>
+            <li><a href="#contato">Orçamento</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 MP Web Soluções. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="loading" class="loading-overlay" aria-hidden="true">
+    <div class="spinner"></div>
+    <div class="loading-text">Enviando...</div>
+  </div>
+
+  <script>
+    // Menu Toggle Mobile
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const loadingEl = document.getElementById('loading');
+    
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Form Submission Handler
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Validação nativa do navegador
+      if (!contactForm.reportValidity()) {
+        return;
+      }
+
+      // Muda o estado do botão para indicar carregamento
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = "Enviando...";
+      submitBtn.disabled = true;
+      loadingEl.classList.add('show');
+      
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Parâmetros para o EmailJS, usando os dados do formulário
+      const templateParams = {
+        nome: data.nome,
+        email: data.email,
+        telefone: data.telefone || "Não informado",
+        tipo: data.tipo,
+        mensagem: data.mensagem
+      };
+
+      // Chamada do EmailJS
+      emailjs.send("service_2yqn99i", "template_8yvozy9", templateParams)
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+           alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+           contactForm.reset();
+        }, function(error) {
+           console.log('FAILED...', error);
+           alert("Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou use o WhatsApp.");
+        })
+        .finally(() => {
+           // Restaura o botão
+           submitBtn.innerText = originalText;
+           submitBtn.disabled = false;
+            loadingEl.classList.remove('show');
+        });
+    });
+  </script>
+</body>
+</html>
